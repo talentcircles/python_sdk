@@ -2,6 +2,7 @@
 # TalentCircles.py
 #
 # A module for accessing the TalentCircles REST API
+#
 # @author tom@talentcircles.com
 # @copyright Copyrights (c) 2017 TalentCircles Inc.
 
@@ -9,21 +10,26 @@ import requests
 import datetime
 import urllib3
 import json
+import talent_circles_config as conf
 from requests.auth import HTTPDigestAuth
 
 class TalentCircles:
 	'A developer library for accessing a TalentCircles REST API'
 
-	app_id = "romeo-5931c22e4190b"
-	api_key = "Y1IgDgriOjAo5hKMzZ0RxC"
-	prefix = "https://"
-	domain = "mytalentmall.talentcircles.vm"
-	api_path = "/api/v1/"
-	url = prefix + domain + api_path
+	# Config options ################################
+	app_id = conf.app_id
+	api_key = conf.api_key
+	prefix = conf.prefix
+	domain = conf.domain
+	api_path = conf.api_path
+	url = conf.prefix + conf.domain + conf.api_path
+	environment = conf.environment
+	#################################################
 
 	# if development mode
-	verify_ssl = False
-	urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+	if environment == "dev":
+		verify_ssl = False
+		urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 	def get_resource(self, resource, resource_id):
 		url = self.url + resource
@@ -33,6 +39,7 @@ class TalentCircles:
 				url += "/" + str(ids_string)
 			else:
 				url += "/" + str(resource_id)
+
 		response = requests.request("GET", url, auth=HTTPDigestAuth(self.app_id, self.api_key), verify=self.verify_ssl)
 		return json.loads(response.text)
 
@@ -334,7 +341,7 @@ class TalentCircles:
 ############### USAGE ###########################
 #################################################
 
-talent_api = TalentCircles()
+# talent_api = TalentCircles()
 
 ### JOBS ###
 # job = talent_api.get_job(7480159)
