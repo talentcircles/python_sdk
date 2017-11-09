@@ -161,18 +161,16 @@ class TalentCircles:
         return result['jobs']
 
     def get_job_candidates(self, job_id):
-        user_list = []
+        if not job_id:
+            raise ValueError, 'Missing job_id'
         result = self.get_posessions('jobs', job_id, 'candidates')
-        for user in result['candidates']:
-            user_list.append(user['user'])
-        return user_list
+        return result['candidates']
 
     def get_similar_jobs(self, job_id):
-        job_list = []
+        if not job_id:
+            raise ValueError, 'Missing job_id'
         result = self.get_posessions('jobs', job_id, 'similar_jobs')
-        for job in result['jobs']:
-            job_list.append(job['job'])
-        return job_list
+        return result['jobs']
 
     def create_job(self, job_data):
         default_details = {
@@ -215,13 +213,10 @@ class TalentCircles:
         return result['users']
 
     def get_user_matching_jobs(self, user_id):
-        job_list = []
         if not user_id:
             raise ValueError, 'Missing user_id'
         result = self.get_posessions('users', user_id, 'matching_jobs')
-        for job in result['jobs']:
-            job_list.append(job['job'])
-        return job_list
+        return result['jobs']
 
     def get_user_stories(self, user_id, additonal_params=None):
         if not user_id:
@@ -238,9 +233,7 @@ class TalentCircles:
         if not user_id:
             raise ValueError, 'Missing user_id'
         result = self.get_posessions('users', user_id, 'similar_candidates')
-        for user in result['users']:
-            user_list.append(user['user'])
-        return user_list
+        return result['users']
 
     def create_user(self, user_data):
         valid_data = self.validate_user_data(user_data)
