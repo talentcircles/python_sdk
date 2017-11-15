@@ -10,26 +10,26 @@ import requests
 import datetime
 import urllib3
 import json
-import talent_circles_config as conf
 from requests.auth import HTTPDigestAuth
 
 class TalentCircles:
     'A developer library for accessing a TalentCircles REST API'
 
-    # Config options ################################
-    app_id = conf.app_id
-    api_key = conf.api_key
-    prefix = conf.prefix
-    domain = conf.domain
-    api_path = conf.api_path
-    url = conf.prefix + conf.domain + conf.api_path
-    environment = conf.environment
-    #################################################
+    def __init__(self, domain, app_id, api_key, prefix='https://',
+                 api_path='/api/v1/', environment='pro'):
+        self.domain = domain
+        self.app_id = app_id
+        self.api_key = api_key
+        self.prefix = prefix
+        self.api_path = api_path
+        self.environment = environment
+        self.url = prefix + domain + api_path
+        self.verify_ssl = True
 
-    # if development mode
-    if environment == "dev":
-        verify_ssl = False
-        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        # if development mode
+        if environment == 'dev':
+            self.verify_ssl = False
+            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
     def get_resource(self, resource, resource_id):
         url = self.url + resource
@@ -381,7 +381,16 @@ class TalentCircles:
 ############### USAGE ###########################
 #################################################
 
-# talent_api = TalentCircles()
+# Your network's App ID
+# app_id = "romeo-5931c22e4190b"
+
+# # Used to authenticate with the API
+# api_key = "Y1IgDgriOjAo5hKMzZ0RxC"
+
+# # The specific TalentCircles network's url
+# domain = "mytalentmall.talentcircles.vm"
+
+# talent_api = TalentCircles(domain, app_id, api_key, environment='dev')
 
 ### JOBS ###
 # job = talent_api.get_job(7480159)
@@ -417,8 +426,8 @@ class TalentCircles:
 # print searched_jobs[0]['job_title']
 
 ### USERS ###
-# user = talent_api.get_user(12770410)
-# print user['firstname']
+# user = talent_api.get_user(12770260)
+# print user['formatted_name']
 
 # two_users = talent_api.get_users([12770410, 12769405])
 # for user in two_users:

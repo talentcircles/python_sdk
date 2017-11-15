@@ -8,8 +8,17 @@
 # Import the class
 from talentcircles import TalentCircles
 
-# Create the object
-talent_api = TalentCircles()
+# Your network's App ID
+app_id = "romeo-5931c22e4190b"
+
+# Used to authenticate with the API
+api_key = "Y1IgDgriOjAo5hKMzZ0RxC"
+
+# The specific TalentCircles network's url
+domain = "mytalentmall.talentcircles.vm"
+
+# Initialize the object
+talent_api = TalentCircles(domain, app_id, api_key)
 
 # Functions by resource:
 
