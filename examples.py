@@ -55,7 +55,8 @@ print(job['job_title'])
 # 	print job['job']['job_title'] + " - Score: " + str(job['score'])
 
 # searched_jobs = talent_api.search_jobs({"commitment_levels":1})
-# print searched_jobs[0]['job_title']
+# for job in searched_jobs:
+#     print job['job']['job_title'] + " - Score: " + str(job['score'])
 
 ### USERS ###
 # user = talent_api.get_user(12770410)
@@ -67,7 +68,7 @@ print(job['job_title'])
 
 # user_matching_jobs = talent_api.get_user_matching_jobs(12770260)
 # for job in user_matching_jobs:
-# 	print job['job']['job_title'] + " - Score: " + str(job['score'])
+# 	print(job['job']['job_title'] + " - Score: " + str(job['score']))
 
 # similar_users = talent_api.get_similar_users(12770260)
 # for user in similar_users:
