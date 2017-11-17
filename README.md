@@ -11,9 +11,9 @@ $ sudo pip install talentcircles
 ```
 
 ## Usage
-First, import the TalentCircles class from the talentcircles.python_sdk package:
+First, import the TalentCircles class from the talentcircles.talentcircles package:
 ```python
-from talentcircles.python_sdk import TalentCircles
+from talentcircles.talentcircles import TalentCircles
 ```
 Then initialize the SDK object:
 ```python
