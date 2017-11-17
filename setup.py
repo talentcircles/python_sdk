@@ -21,11 +21,5 @@ setup(
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.7',
   ],
-  install_requires=[
-    'requests',
-    'datetime',
-    'urllib3',
-    'json',
-  ],
   py_modules=["talentcircles"],
 )
