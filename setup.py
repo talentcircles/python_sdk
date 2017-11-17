@@ -1,14 +1,14 @@
 from distutils.core import setup
 setup(
-  name = 'talentcircles',
-  packages = ['talentcircles'],
-  version = '0.4',
+  name = 'python_sdk',
+  packages = ['python_sdk'],
+  version = '1.0.0',
   description = 'A module for accessing the TalentCircles REST API',
   author = 'Tom Clowers',
   author_email = 'tom@talentcircles.com',
   url = 'https://github.com/talentcircles/python_sdk',
-  download_url = 'https://github.com/talentcircles/python_sdk/archive/0.4.tar.gz',
-  keywords = ['hr', 'talent', 'jobs'],
+  download_url = 'https://github.com/talentcircles/python_sdk/archive/1.0.0.tar.gz',
+  keywords = ['hr', 'talent', 'jobs', 'resume'],
   license='MIT',
   classifiers = [
     'Development Status :: 5 - Production/Stable',

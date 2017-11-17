@@ -1,17 +1,21 @@
 # TalentCircles Python Developer Kit
 
-This library allows developers to integrate a TalentCircles network into their own application through HTTP calls to that
-network's REST API endpoints.
+This library allows developers to integrate a TalentCircles network into their
+own application through HTTP calls to that network's REST API endpoints.
 
-<!-- ## Setup -->
-<!-- Setup is simple and easy with composer. See [instructions here](https://getcomposer.org/download/) if you do not have composer installed.
-Once you have composer, use the following command from your project root:
+## Setup
+Setup is simple and easy with pip. First ensure that you have Python 2.7
+installed, then use the following command from your project root:
 ```
-$ composer require talentcircles/php_sdk
-``` -->
+$ sudo pip install talentcircles
+```
 
 ## Usage
-First initialize the SDK object:
+First, import the TalentCircles class from the talentcircles.python_sdk package:
+```python
+from talentcircles.python_sdk import TalentCircles
+```
+Then initialize the SDK object:
 ```python
 # Use your Network URL, App ID, and Api Key to connect to your API.
 # It is reccomended that this information be kept somewhere in your
@@ -311,7 +315,8 @@ story_ids = [
     247,
     246
 ]
-multiple_updated_stories = talent_api.update_stories(story_ids, updated_story_data)
+multiple_updated_stories = talent_api.update_stories(story_ids,
+                                                     updated_story_data)
 for updated_story in multiple_updated_stories:
     print updated_story['title']
 ```
