@@ -1,5 +1,5 @@
 
-# python_sdk.py
+# talentcircles.py
 #
 # A module for accessing the TalentCircles REST API
 #
