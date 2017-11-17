@@ -4,14 +4,18 @@ This library allows developers to integrate a TalentCircles network into their o
 network's REST API endpoints.
 
 <!-- ## Setup -->
-<!-- Setup is simple and easy with composer. See [instructions here](https://getcomposer.org/download/) if you do not have composer installed.
-Once you have composer, use the following command from your project root:
+Setup is simple and easy with pip. Once you are certain you have Python 2.7
+installed, use the following command from your project root:
 ```
-$ composer require talentcircles/php_sdk
-``` -->
+$ pip install talentcircles
+```
 
 ## Usage
-First initialize the SDK object:
+First import TalentCircles from talentcircles.talentcircles
+```python
+from talentcircles.talentcircles import TalentCircles
+```
+Then initialize the SDK object:
 ```python
 # Use your Network URL, App ID, and Api Key to connect to your API.
 # It is reccomended that this information be kept somewhere in your
