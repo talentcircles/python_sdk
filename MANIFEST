@@ -2,5 +2,4 @@
 setup.cfg
 setup.py
 python_sdk/__init__.py
-python_sdk/examples.py
-python_sdk/talentcircles.py
+python_sdk/python_sdk.py
